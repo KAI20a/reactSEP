@@ -1,4 +1,4 @@
-import { Box, Stack } from "@chakra-ui/react";
+import { Box, Center, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
@@ -30,7 +30,9 @@ export const Layout = () => {
       <div>
         <Outlet />
       </div>
-      <div>footer</div>
+      <div>
+      <Center>  <Text fontSize='2xl'>Footer</Text></Center>
+      </div>
     </>
   );
 };
