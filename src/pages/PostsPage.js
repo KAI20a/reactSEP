@@ -69,7 +69,7 @@ export const PostsPage = () => {
     <Flex flexWrap="wrap">
       <ButtonGroup m={4} variant='outline' spacing='7'>
         {peoples.map((people) => (
-          <Button  size='sm' colorScheme='blue' onClick= {() => handleButtonClick(people.id)}key={people.id}>{people.name}</Button>
+          <Button  size='sm' colorScheme='blue' onClick= {() => handleButtonClick(people.id)}key={people.id}>{people && people.name || ''}</Button>
         ))}
       </ButtonGroup>
 
@@ -85,7 +85,7 @@ export const PostsPage = () => {
                 <CardHeader><Text fontSize='2xl' color='tomato' as='mark'>{post.title}</Text></CardHeader>
                 <CardBody><Text fontSize='xl' color='green' as='cite'>{post.body}</Text></CardBody>
 
-                <CardBody> <Text fontSize='l' color='black' as='b'>{peoples.find(ppl => ppl.id === post.userId).name || ''}</Text></CardBody>
+                <CardBody> <Text fontSize='l' color='black' as='b'>{(peoples.find(ppl => ppl.id === post.userId) || {}).name || ''}</Text></CardBody>
               </Card></Center>
             ))
         ) : (
@@ -94,7 +94,7 @@ export const PostsPage = () => {
                 <CardHeader><Text fontSize='2xl' color='tomato' as='mark'>{post.title}</Text></CardHeader>
                 <CardBody><Text fontSize='xl' color='green' as='cite'>{post.body}</Text></CardBody>
 
-                <CardBody> <Text fontSize='l' color='black' as='b'>{peoples.find(ppl => ppl.id === post.userId).name || ''}</Text></CardBody>
+                <CardBody> <Text fontSize='l' color='black' as='b'>{(peoples.find(ppl => ppl.id === post.userId) || {}).name || ''}</Text></CardBody>
               </Card></Center>
           ))
         )}
